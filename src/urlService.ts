@@ -36,7 +36,7 @@ export class ApiUrlService implements UrlService {
     }
 
     public async createBatchShortUrl(batchUrlRequest: BatchUrlRequest): Promise<BatchUrlResponse> {
-        const req = await axios.post(this.baseUrl + "/api/url/create-batch/", batchUrlRequest);
+        const req = await axios.post(this.baseUrl + "api/url/batch-create/", batchUrlRequest);
         return req.data;
     }
 }
