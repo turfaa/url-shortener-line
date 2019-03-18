@@ -4,13 +4,16 @@ import {Handler, UrlShortenerHandler} from "./handlers";
 import {ApiUrlService} from "./urlService";
 
 const lineConfig: ClientConfig & MiddlewareConfig = {
-    channelAccessToken: process.env["CHANNEL-ACCESS-TOKEN"],
-    channelSecret: process.env["CHANNEL-SECRET"]
+    channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
+    channelSecret: process.env.CHANNEL_SECRET
 };
+
+// tslint:disable-next-line
+console.log(process.env);
 
 const app = express();
 const lineClient = new Client(lineConfig);
-const urlService = new ApiUrlService(process.env["BASE-URL"]);
+const urlService = new ApiUrlService(process.env.BASE_URL);
 
 const handlers: Handler[] = [
     new UrlShortenerHandler(urlService, lineClient)
