@@ -8,9 +8,6 @@ const lineConfig: ClientConfig & MiddlewareConfig = {
     channelSecret: process.env.CHANNEL_SECRET
 };
 
-// tslint:disable-next-line
-console.log(process.env);
-
 const app = express();
 const lineClient = new Client(lineConfig);
 const urlService = new ApiUrlService(process.env.BASE_URL);
